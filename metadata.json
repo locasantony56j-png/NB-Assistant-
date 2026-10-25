@@ -1,0 +1,6 @@
+{
+  "name": "NB Assistant",
+  "description": "Ultra-fast bilingual AI Voice Assistant with deep app control, continuous voice listening, WhatsApp & YouTube automation, and self-healing error recovery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

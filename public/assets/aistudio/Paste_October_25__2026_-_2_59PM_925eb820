@@ -1,0 +1,2455 @@
+User attachment
+youtube moto jeno ay app gula deply kaj kore ar whatsapp,imo massgenger facebook massenger facebook instagram massge asob scoll ami upore jamon ta deeply kaj kore thik ay secreenshot deoya app gula jeno sei vabei deeply kaj kore  jeno bollei dukte pare ar sob kaj jeno thik vabe kaj kore
+তোমার স্ক্রিনশট অনুযায়ী NB AI-এর এই App Dashboard-এ থাকা WhatsApp, IMO, Messenger, Facebook, Instagram, YouTube-সহ প্রতিটি অ্যাপের জন্য আলাদা Deep Control System তৈরি করতে হবে। নিচের prompt-টি আগের Master Prompt-এর সঙ্গে Lovable-এ দাও।
+
+NB AI — Deep Control for Every App in the Existing App Dashboard
+Objective
+Inspect my existing NB AI Voice Assistant project and the current App Dashboard shown in my screenshot. Keep the existing design, icons, app names, layout, and all previously implemented features.
+
+My problem is that NB AI can open an app, but after entering it, deep interaction does not work reliably. Scrolling, clicking, reading content, searching, selecting items, playing media, and completing tasks often fail.
+
+Fix the actual underlying native Android implementation. I want every supported application in this dashboard to work as deeply and reliably as possible through Bangla, Banglish, and English voice commands.
+
+Do not just make the icons clickable. Implement actual app launching, in-app interaction, scrolling, command execution, and result verification.
+
+1. Support Every App in My Dashboard
+Create a dedicated integration or capability adapter for each of these apps:
+
+Communication and messaging
+WhatsApp
+
+Phone
+
+Messages
+
+Contacts
+
+Messenger
+
+Telegram
+
+IMO
+
+Gmail
+
+Google Meet
+
+Zoom
+
+Social media
+Facebook
+
+Instagram
+
+TikTok
+
+Snapchat
+
+X (Twitter)
+
+LinkedIn
+
+Video, music, and entertainment
+YouTube
+
+Spotify
+
+Netflix
+
+Google and AI tools
+ChatGPT
+
+Gemini
+
+Google Maps
+
+Chrome
+
+Google Translate
+
+Google Drive
+
+Google Photos
+
+Google Calendar
+
+Shopping, payments, and other apps
+Play Store
+
+Calculator
+
+Clock
+
+Files / Downloads
+
+Android Settings
+
+bKash
+
+Nagad
+
+Daraz
+
+Use the actual installed package identifier and available launch intent for each app. Do not hard-code assumptions that every device has the same package name or app version.
+
+Detect missing or disabled apps and show a proper install/open option instead of a broken icon.
+
+2. Universal Deep Scrolling
+Fix scrolling across all supported applications.
+
+When I say:
+
+“NB, নিচে scroll করো.”
+
+“আরও নিচে যাও.”
+
+“উপরে scroll করো.”
+
+“একটু নিচে নামো.”
+
+“এই page-এর একদম নিচে যাও.”
+
+“আরও post দেখাও.”
+
+“পরের message দেখাও.”
+
+NB AI should identify the current app, inspect the accessible UI hierarchy, locate the correct scrollable container, and perform the requested scroll.
+
+Implement:
+
+Accessibility-node-based scrolling.
+
+Vertical and horizontal scrolling.
+
+Nested scroll-container detection.
+
+Scroll direction and distance handling.
+
+Repeated scrolling with safe limits.
+
+UI refresh and reinspection after scrolling.
+
+Detection of end-of-list or loading states.
+
+Recovery when the page layout changes.
+
+Scroll verification where possible.
+
+Prefer native accessibility scroll actions and semantic UI controls. Use gestures only when necessary and permitted.
+
+Never repeatedly swipe blindly if the page has not moved. Detect whether the screen actually changed.
+
+3. WhatsApp, IMO, Messenger, and Telegram
+Implement deep interaction wherever the app exposes accessible controls.
+
+Supported workflows should include:
+
+Open the requested messaging app.
+
+Read accessible conversation names and visible message text when requested.
+
+Search for a contact or conversation.
+
+Open a selected conversation.
+
+Scroll through conversation history.
+
+Enter dictated text in the message field.
+
+Read the drafted message back to me when appropriate.
+
+Send the message after confirmation when needed.
+
+Identify incoming messages from accessible notifications when permission is granted.
+
+Open supported voice or video call controls.
+
+Verify whether the intended screen or action was reached.
+
+Example commands:
+
+“NB, WhatsApp খোলো.”
+
+“NB, WhatsApp-এ Rahim-এর chat খোলো.”
+
+“NB, chat-এর পুরোনো message দেখতে উপরে scroll করো.”
+
+“NB, Messenger খুলে message list নিচে scroll করো.”
+
+“NB, IMO-তে এই contact-কে message লেখো.”
+
+If several contacts have similar names, ask me to choose the correct contact.
+
+Do not bypass app locks, authentication, disappearing-message restrictions, or other security controls. Do not claim to have sent a message unless the send action is verified.
+
+4. Facebook and Instagram
+Implement supported deep interaction for the actual feed and available screens.
+
+Features:
+
+Open the app and navigate to accessible sections.
+
+Scroll the feed up and down.
+
+Read visible post text aloud when requested.
+
+Identify accessible post actions.
+
+Open comments and accessible comment fields.
+
+Draft comments and captions.
+
+Perform supported reactions.
+
+Search for profiles or content using available interfaces.
+
+Open accessible profiles and posts.
+
+Verify navigation and interaction results.
+
+Example commands:
+
+“NB, Facebook খোলো.”
+
+“Facebook feed নিচে scroll করো.”
+
+“এই post-টা পড়ে শোনাও.”
+
+“আরও post দেখাও.”
+
+“এই post-এ Like দাও.”
+
+“Instagram খোলো এবং feed scroll করো.”
+
+“এই ছবির caption লিখে দাও.”
+
+Require confirmation before publishing comments, posts, or other public content. Never claim a reaction or post succeeded unless the outcome can be verified.
+
+5. YouTube Deep Control
+Implement actual YouTube navigation, search, scrolling, and playback.
+
+Supported commands:
+
+Open YouTube.
+
+Search for a song, artist, or video.
+
+Select an appropriate result.
+
+Play and pause.
+
+Resume playback.
+
+Next and previous track where supported.
+
+Seek forward or backward where supported.
+
+Scroll search results and feeds.
+
+Read accessible video titles.
+
+Adjust media volume using Android's native audio controls.
+
+Example:
+
+“NB, YouTube খোলো.”
+
+“NB, Atif Aslam-এর গান চালাও.”
+
+“NB, search result-এর নিচে scroll করো.”
+
+“NB, এই video pause করো.”
+
+“NB, sound বাড়াও.”
+
+Use supported Android intents, media sessions, official interfaces, and accessibility interaction as appropriate. Respect app restrictions, network delays, and playback entitlements.
+
+6. Browsers, Google Apps, and Productivity Apps
+For Chrome, Gmail, Maps, Drive, Photos, Calendar, Translate, ChatGPT, and Gemini:
+
+Open the requested application.
+
+Identify the active screen and available accessible controls.
+
+Search, scroll, navigate, and enter text where supported.
+
+Read visible accessible content aloud on request.
+
+Open links and supported destinations.
+
+Create calendar events through permitted interfaces.
+
+Search Maps and open destinations.
+
+Browse authorized files and photos.
+
+Use official APIs where available.
+
+Verify important actions and report failures.
+
+Do not assume every app exposes every control through Accessibility Service. Use official APIs or supported intents when more reliable.
+
+7. Device Tools and Financial Apps
+For Phone, Contacts, Messages, Clock, Calculator, Play Store, Files, Settings, bKash, Nagad, and Daraz:
+
+Implement the actual supported workflows.
+
+Open the correct screens and interact with available controls.
+
+Use system intents and APIs where appropriate.
+
+Support calculations, alarms, searches, and authorized file operations.
+
+For payment applications, allow navigation and read accessible information only with authorization.
+
+Never make a payment, transfer money, purchase an item, or confirm a financial transaction without explicit user approval.
+
+Never collect, expose, or store PINs, OTPs, passwords, or other authentication secrets.
+
+Do not automate protected transactions or bypass security checks.
+
+8. Real Native Android Architecture
+Implement the required native Kotlin components and connect them to the existing application through the appropriate native bridge.
+
+Required components:
+
+Installed-app discovery and launch manager.
+
+App compatibility registry.
+
+Accessibility Service.
+
+UI hierarchy inspection and interaction engine.
+
+Scroll and gesture controller.
+
+Native volume and permitted brightness controller.
+
+Voice-command router.
+
+App-specific adapters.
+
+Task-state manager.
+
+Result-verification engine.
+
+Permission and service-status dashboard.
+
+Persistent foreground service and wake-word integration from my previous prompts.
+
+Accessibility Service must be declared correctly, configured in Android resources, and enabled manually by the user in Android Settings.
+
+Do not replace native functionality with JavaScript simulations or hard-coded success responses.
+
+9. Fast Execution
+Make common voice commands execute as quickly as technically possible.
+
+Use local command recognition for simple actions.
+
+Reuse initialized native services.
+
+Avoid unnecessary remote AI calls.
+
+Avoid restarting speech recognition for every command.
+
+Use event-driven UI detection instead of excessive polling.
+
+Do not insert unnecessary fixed delays.
+
+Use bounded waits for UI elements and page transitions.
+
+Cancel obsolete tasks when I issue a newer command.
+
+Prioritize stop, cancel, pause, volume, and other simple local actions.
+
+Provide short progress feedback while longer tasks run.
+
+Measure recognition, command-routing, action-execution, and total response latency. Fix the actual bottleneck instead of merely changing animation speed.
+
+10. Mandatory App-by-App Testing
+Create a dashboard test matrix containing every app listed above.
+
+For each app, test these applicable capabilities:
+
+Can the app be detected and opened?
+
+Can the active screen be identified?
+
+Can the screen be scrolled vertically?
+
+Can horizontal scrolling work where applicable?
+
+Can accessible buttons and fields be identified?
+
+Can text be entered where supported?
+
+Can navigation and search work?
+
+Can the requested action be verified?
+
+Does the operation work through a Bangla or Banglish voice command?
+
+What permissions or restrictions remain?
+
+Use these statuses:
+
+Implemented and tested.
+
+Implemented but not tested.
+
+Partially supported.
+
+Blocked by app or Android restrictions.
+
+Not implemented.
+
+Do not mark an app fully working just because it opens successfully.
+
+Test on an actual Android device whenever possible. Do not claim device tests passed if they were not performed.
+
+Final Requirement
+Keep my current NB AI App Dashboard and integrate these capabilities into the existing project.
+
+My expected workflow is:
+
+I say “NB” → the assistant recognizes my command → opens the correct app or uses the already open app → performs the requested supported action → verifies the result → responds briefly.
+
+The assistant should not stop after opening an application. It must continue interacting with the app when supported, including scrolling, searching, selecting, reading accessible content, and performing authorized actions.
+
+Inspect the existing source code, identify why current scrolling and deep interactions fail, fix the underlying implementation, and continue through the app-by-app checklist. Do not return only a plan or a redesigned interface. Deliver the real code changes, build instructions, and an honest test report.
+
+Do not promise unrestricted control over every third-party app. Implement all achievable functionality and clearly explain any restrictions that cannot be overcome legitimately.
+
+মনে রাখবে: সব অ্যাপে একইভাবে কাজ করানোর জন্য শুধু একটি generic Accessibility Service যথেষ্ট নাও হতে পারে। কিছু অ্যাপে আলাদা integration প্রয়োজন হবে। তাই Lovable-কে প্রথমে WhatsApp, Messenger, IMO, Facebook, Instagram ও YouTube-এর scrolling এবং UI interaction বাস্তবে পরীক্ষা করে ঠিক করতে বলবে; তারপর বাকি অ্যাপগুলোতে একই engine ও app-specific adapter প্রয়োগ করতে বলবে।
+
+User attachment
+whatsapp modde jeno dukte pare sob massge dekte pare amar amar kotharsathre sathe jaiga ki ki ase sob aamake janbe ki korbe aamake bolbe ar amar screenshot deoya sob app gula jeno deeply kaj kore ar deply ki ki kaj korbe tar detasl likhe dao ar moost importtant ja besoy add korba seita holo ay app ta khub slow sone tar por onec somoy por kaj kore ata amon vabe thik korba jate khub fast sune kotha bola sathe sathe jeno kaj kore khub fast
+তোমার NB AI-এর জন্য এবার এমন একটি Ultimate Master Prompt দিলাম, যাতে স্ক্রিনশটে থাকা সব অ্যাপের Deep Control, WhatsApp-এর মেসেজ পড়া ও জানানো, স্ক্রলিং, অ্যাপের ভেতরে কাজ করা এবং সবচেয়ে গুরুত্বপূর্ণ—কথা বলার সঙ্গে সঙ্গে দ্রুত কাজ শুরু করা—সবকিছু বিস্তারিতভাবে অন্তর্ভুক্ত আছে।
+
+এটি তোমার আগের Lovable project-এ দেবে। নতুন project তৈরি করতে বলবে না।
+
+NB AI — Ultimate Deep App Automation, WhatsApp Intelligence & Ultra-Fast Voice Execution
+1. PRIMARY OBJECTIVE
+Upgrade my existing NB AI Voice Assistant project. Preserve all existing features, the current App Dashboard design, previous prompts, native Android integration, the “NB” wake word, foreground service, Accessibility Service, and all existing settings.
+
+My current problems are:
+
+NB AI takes too long to hear and process my commands.
+
+Sometimes it responds only after a long delay.
+
+It opens applications but cannot interact with them deeply.
+
+Scrolling, reading messages, clicking buttons, searching, and completing tasks are unreliable.
+
+It does not consistently understand what is currently happening inside an application.
+
+Fix the actual underlying implementation. Do not merely redesign the interface or add simulated functionality.
+
+Highest priority: reduce voice-command latency, implement real in-app interaction, and make the supported features reliable.
+
+2. WHATSAPP DEEP MODE
+Implement a dedicated WhatsApp integration with a clear status indicator showing which capabilities are available.
+
+When I say “NB, WhatsApp খোলো,” the assistant should open WhatsApp and, where authorized and technically supported, interact with its accessible interface.
+
+A. Read and understand messages
+Support the following workflows where WhatsApp and Android expose the required information:
+
+Identify accessible chat names and visible messages.
+
+Read messages from an explicitly selected conversation.
+
+Read incoming message notifications when notification access has been granted.
+
+Identify the sender, message text, and available timestamp information.
+
+Scroll upward through a conversation to view older messages.
+
+Scroll downward to newer messages.
+
+Search for a contact or conversation.
+
+Summarize accessible messages on request.
+
+Read the selected message or summary aloud in Bangla.
+
+Distinguish between information that is visible, notification-derived, and actually available through an authorized integration.
+
+Example commands:
+
+“NB, WhatsApp খোলো।”
+
+“NB, WhatsApp-এ কী কী নতুন message এসেছে বলো।”
+
+“NB, Rahim-এর message পড়ে শোনাও।”
+
+“NB, এই chat-এ কী কথা হয়েছে সংক্ষেপে বলো।”
+
+“NB, পুরোনো message দেখতে উপরে scroll করো।”
+
+“NB, নিচের নতুন message-গুলো দেখাও।”
+
+“NB, unread message থাকলে আমাকে জানাও।”
+
+If multiple people have similar names, ask which contact I mean.
+
+Do not claim to have read all messages if only the currently visible screen or accessible notifications are available.
+
+B. Understand what is happening
+When I explicitly ask, NB AI should explain the accessible information in a useful format:
+
+Who sent the message.
+
+What the message says.
+
+Whether a visible notification indicates a new message.
+
+Which conversation is currently open.
+
+What action I can take next.
+
+A short summary of a selected conversation or available message set.
+
+Do not silently monitor private conversations beyond the permissions and access I have explicitly enabled. Provide a clear option to pause message reading and notification access.
+
+C. Reply and send messages
+Support:
+
+Dictating a reply.
+
+Entering text into the correct accessible message field.
+
+Reading the drafted reply back when requested.
+
+Editing or cancelling the draft.
+
+Asking for confirmation before sending when appropriate.
+
+Verifying whether the message was actually sent.
+
+Never send a message to the wrong person because of an ambiguous contact name.
+
+D. WhatsApp limitations
+Use the official WhatsApp app, supported Android intents, authorized notification access, and accessibility interactions where permitted.
+
+Do not bypass app locks, encryption, authentication, or protected application data. Do not scrape private databases or use unofficial techniques to evade WhatsApp restrictions.
+
+If full conversation history cannot be accessed through the current interface, explain exactly what is available and offer the supported way to view it.
+
+3. COMPLETE APP DASHBOARD DEEP CONTROL
+Implement and test each app shown in my existing screenshot.
+
+Communication
+WhatsApp
+
+Phone
+
+Messages
+
+Contacts
+
+Messenger
+
+Telegram
+
+IMO
+
+Gmail
+
+Google Meet
+
+Zoom
+
+Social media
+Facebook
+
+Instagram
+
+TikTok
+
+Snapchat
+
+X (Twitter)
+
+LinkedIn
+
+Media
+YouTube
+
+Spotify
+
+Netflix
+
+Google and AI
+ChatGPT
+
+Gemini
+
+Google Maps
+
+Chrome
+
+Google Translate
+
+Google Drive
+
+Google Photos
+
+Google Calendar
+
+Other applications
+Play Store
+
+Calculator
+
+Clock
+
+Files / Downloads
+
+Android Settings
+
+bKash
+
+Nagad
+
+Daraz
+
+Detect which applications are installed and launch each using its actual available package identifier, supported intent, or deep link. Show a useful message if an application is missing or its requested action is unsupported.
+
+Do not mark an application as fully implemented merely because it opens.
+
+4. DEEP INTERACTION ENGINE FOR EVERY APP
+Create one shared native interaction engine and separate app-specific adapters.
+
+The engine must support, where available:
+
+Inspecting the current accessible screen.
+
+Identifying the active application.
+
+Finding buttons, labels, fields, lists, and scroll containers.
+
+Vertical and horizontal scrolling.
+
+Clicking accessible controls.
+
+Entering text into accessible fields.
+
+Selecting tabs and menu items.
+
+Opening search results and accessible links.
+
+Reading visible text aloud.
+
+Detecting loading indicators and screen transitions.
+
+Rechecking the screen after actions.
+
+Detecting whether an action succeeded.
+
+Recovering from changed layouts and missing controls.
+
+Cancelling an unfinished operation safely.
+
+Use Accessibility Service with properly declared native Kotlin components and configuration resources. Enable it through the Android settings screen with explicit user authorization.
+
+Prefer semantic accessibility actions and official APIs over fixed coordinates. Use gesture-based interaction only when necessary, permitted, and reliable.
+
+If an app does not expose the required controls, do not repeatedly click blindly. Report the limitation and use another authorized integration if available.
+
+5. APP-SPECIFIC BEHAVIOURS
+Facebook and Messenger
+Open the requested screen.
+
+Scroll feeds and accessible message lists.
+
+Read visible posts or selected conversations.
+
+Search for people or content.
+
+Open accessible posts and conversations.
+
+Draft comments and messages.
+
+Perform supported reactions.
+
+Confirm before sending or publishing.
+
+Verify important actions.
+
+Instagram, TikTok, Snapchat, X, and LinkedIn
+Navigate supported screens.
+
+Scroll feeds and lists.
+
+Read accessible captions and visible text.
+
+Search for content or profiles.
+
+Open supported posts and profiles.
+
+Draft messages, captions, or comments where permitted.
+
+Confirm public posts and messages before publishing.
+
+YouTube
+Search for songs and videos.
+
+Open appropriate results.
+
+Play, pause, and resume supported playback.
+
+Control next/previous track and seeking when available.
+
+Scroll feeds and search results.
+
+Read accessible titles.
+
+Control media volume using native Android APIs.
+
+Verify playback using available player or media-session signals.
+
+Spotify and Netflix
+Open supported content.
+
+Search and select accessible results.
+
+Control playback through available media sessions or official interfaces.
+
+Use accessible controls where appropriate.
+
+Respect account entitlements and service restrictions.
+
+Chrome, ChatGPT, Gemini, Gmail, Telegram, IMO, Zoom, and Meet
+Open the correct application.
+
+Navigate accessible screens.
+
+Search, scroll, and enter text where supported.
+
+Read accessible content on request.
+
+Draft content and ask for confirmation before sending.
+
+Use official interfaces and supported intents where possible.
+
+Google Maps, Drive, Photos, Calendar, Translate, and Files
+Search destinations and open navigation.
+
+Browse authorized files and photos.
+
+Read accessible file or screen information.
+
+Create calendar events through supported interfaces.
+
+Translate dictated text.
+
+Confirm before deleting or sharing files.
+
+Verify successful operations.
+
+Phone, Messages, Contacts, Clock, Calculator, Settings, and Play Store
+Search contacts.
+
+Open the correct dialer or messaging screen.
+
+Create alarms and timers through supported Android APIs.
+
+Perform calculations.
+
+Open specific settings screens.
+
+Search official app listings and use user-approved installation flows.
+
+bKash, Nagad, and Daraz
+Open the app and navigate accessible screens.
+
+Search and read available authorized information.
+
+Help prepare a shopping workflow.
+
+Never execute a payment, transfer, purchase, or other financial transaction without explicit approval.
+
+Never collect or expose PINs, OTPs, or passwords.
+
+Do not bypass authentication or transaction confirmations.
+
+For every app, maintain a capability registry with supported actions, required permissions, known restrictions, and honest test status.
+
+6. MOST IMPORTANT — FIX SLOW VOICE RESPONSE
+Investigate why NB AI takes too long to hear and execute commands. Do not merely change the loading animation.
+
+Measure the complete command pipeline:
+
+Wake-word detection.
+
+Speech capture.
+
+Speech-to-text.
+
+Intent classification.
+
+Permission and safety checks.
+
+Native action execution.
+
+Result verification.
+
+Spoken response.
+
+Record separate latency measurements for these stages and identify the actual bottleneck.
+
+Required optimizations
+Use a native low-latency wake-word engine for “NB.”
+
+Reuse initialized speech and native services.
+
+Use streaming speech recognition where supported.
+
+Process partial recognition results without prematurely executing ambiguous commands.
+
+Handle common Bangla and Banglish commands locally.
+
+Use deterministic local command routing for simple actions.
+
+Avoid unnecessary remote AI calls for volume, brightness, scrolling, opening apps, and media controls.
+
+Use Android native APIs for supported system controls.
+
+Keep the foreground service active where permitted rather than repeatedly restarting it.
+
+Use event-driven UI detection instead of unnecessary polling.
+
+Avoid arbitrary fixed delays and repeated screen scans.
+
+Use bounded waits when a target UI element is genuinely loading.
+
+Cancel stale tasks when a newer command supersedes them.
+
+Give urgent commands such as “stop,” “cancel,” “pause,” and volume control high priority.
+
+Separate short acknowledgments from long-running task processing.
+
+Prevent the assistant from listening to its own text-to-speech output.
+
+Handle microphone ownership, audio interruptions, and recognition restarts correctly.
+
+Expected command flow
+Say “NB” → detect wake word → recognize command → identify intent → execute supported action → verify result → give a short response.
+
+Do not wait for a long AI-generated explanation before executing a simple safe command.
+
+Examples:
+
+“NB, volume বাড়াও।” → Adjust the actual media volume using Android's appropriate API.
+
+“NB, YouTube-এ গান চালাও।” → Search and select a suitable result, then start playback when available.
+
+“NB, নিচে scroll করো।” → Identify the active scrollable container and perform a supported scroll.
+
+“NB, WhatsApp-এর নতুন notification পড়ে শোনাও।” → Read accessible notifications if notification access is authorized.
+
+“NB, stop।” → Stop the current cancellable operation immediately.
+
+Use local processing for simple commands and network-based reasoning only when required.
+
+Do not promise zero latency. Set measurable performance targets after measuring the current device and implementation, then optimize and report actual results.
+
+7. NATIVE ANDROID RELIABILITY
+Integrate all changes into the existing Kotlin/native Android project.
+
+Ensure:
+
+Correct AndroidManifest.xml declarations.
+
+Proper foreground-service types and permissions.
+
+Accessibility Service class and configuration.
+
+Microphone and notification permission handling.
+
+Safe app switching and screen-lock behaviour where supported.
+
+Battery optimization guidance.
+
+Service-status reporting.
+
+Error logging and recovery.
+
+No duplicate listeners or duplicate task execution.
+
+Correct JavaScript-to-native bridge handling.
+
+A reproducible Android build.
+
+Respect Android's current background execution and microphone restrictions. Do not promise the assistant will survive every force-stop, reboot, permission revocation, or operating-system termination.
+
+8. PRIVACY AND CONTROL
+Add settings to enable or disable:
+
+Wake-word listening.
+
+Background assistant service.
+
+Notification reading.
+
+WhatsApp message reading.
+
+Spoken responses.
+
+Accessibility automation.
+
+Conversation history.
+
+Explain each permission and allow me to revoke access.
+
+Only read private information in response to authorized requests or explicitly enabled functionality. Do not upload or store message contents unnecessarily.
+
+Ask for confirmation before sending messages, publishing content, making consequential calls, deleting files, or completing financial actions.
+
+9. TEST EVERY FEATURE
+Create an app-by-app test report for the complete dashboard.
+
+For each app, test:
+
+App launch.
+
+Current screen detection.
+
+Vertical and horizontal scrolling where applicable.
+
+Button and field interaction.
+
+Search and text entry.
+
+Bangla and Banglish voice commands.
+
+Action verification.
+
+Permission-denied scenarios.
+
+Recovery from failures.
+
+Actual command latency.
+
+Use these statuses:
+
+Implemented and tested.
+
+Implemented but not tested.
+
+Partially supported.
+
+Blocked by Android or third-party restrictions.
+
+Not implemented.
+
+Test on a real Android device whenever possible. Never claim an unperformed test passed.
+
+FINAL IMPLEMENTATION INSTRUCTION
+Start by inspecting the current source code and identifying the real causes of slow listening and failed deep interactions.
+
+Preserve my current dashboard and all previous functionality. Implement the native Android components, WhatsApp message-reading workflows, shared accessibility engine, app-specific adapters, and low-latency command routing.
+
+Do not return only a plan, a mockup, or a list of suggestions. Make the actual source-code changes that the environment supports, build the project where possible, test the features, and report the remaining limitations clearly.
+
+The goal is a fast, reliable, privacy-conscious voice assistant that performs every supported action in the requested app rather than merely opening it.
+
+খুব গুরুত্বপূর্ণ
+WhatsApp: নতুন মেসেজের notification পড়া এবং বর্তমানে খোলা chat-এর দৃশ্যমান মেসেজ পড়া সম্ভব হতে পারে, যদি প্রয়োজনীয় অনুমতি থাকে। কিন্তু সব chat-এর সম্পূর্ণ history স্বয়ংক্রিয়ভাবে পড়তে পারবে—এমন নিশ্চয়তা দেওয়া যায় না।
+
+দ্রুত কাজ: ভলিউম, ব্রাইটনেস ও সাধারণ স্ক্রলিং native/local processing দিয়ে দ্রুত করা যায়। গান খোঁজা, নেটওয়ার্ক ও জটিল অ্যাপের কাজ বেশি সময় নিতে পারে।
+
+সব অ্যাপ: প্রতিটি অ্যাপের ভেতরের সব feature নিয়ন্ত্রণ করা সম্ভব নয়। অ্যাপের নিজস্ব নিরাপত্তা ও Android-এর সীমাবদ্ধতা মানতে হবে।
+
+আমার পরামর্শ: প্রথমে Lovable-কে চারটি কাজ বাস্তবে ঠিক করতে বলো—(১) wake-word ও listening latency, (২) native Accessibility Service, (৩) WhatsApp notification এবং visible-chat reading, (৪) YouTube ও messaging apps-এ scrolling ও action verification। এগুলো পরীক্ষায় সফল হওয়ার পর অন্য অ্যাপগুলোতে একই architecture প্রয়োগ করতে বলবে।
+
+assa app ta khub fast ar kotha bola sathe sathe jeno kaj kore ato fast hobe sob somoy NB bola lagbe na first e ak bar bollei hobe ar ata jeno sob somoy On theke other app e dukleo jeno ata on theke NB tokhon o amar kotha sunbre ar kaj korbe khub fast app ta jeno khub fast kaj kore app ta jeno kotha bola matroi kaj kore stahe sathei late jeno kore na listerning e akhon onec somoy nisse ata solve kore dao jate listering somoy besi na nai sunbe just 2 s e modde kaj korve ar app ta jeno khub fast hoi
+তোমার NB AI-এর জন্য এই prompt-টি আগের সব prompt-এর সঙ্গে Lovable-এ দাও। এবার মূল লক্ষ্য হবে একবার “NB” বলার পর বারবার NB না বলেই কথা বলা, অন্য অ্যাপে গেলেও assistant চালু রাখা, এবং Listening-এর দেরি কমিয়ে দ্রুত command execute করা।
+
+একটি বিষয়: ২ সেকেন্ডের মধ্যে কাজ শুরু করার লক্ষ্য রাখা যায়, কিন্তু প্রতিটি command সর্বোচ্চ ২ সেকেন্ডে শেষ হবে—এটা সব ফোন, নেটওয়ার্ক ও অ্যাপে নিশ্চিত করা সম্ভব নয়। নিচের prompt-এ এই সীমার মধ্যে বাস্তব latency optimization চাওয়া হয়েছে।
+
+NB AI — Instant Voice Mode, Continuous Listening & 2-Second Response Optimization
+MAIN OBJECTIVE
+Upgrade my existing NB AI Voice Assistant project. Do not create a new project, remove existing features, or replace working native Android components with mockups.
+
+My most important problem is that NB AI takes too long in the Listening state before it recognizes my command and starts working.
+
+I want a Continuous Voice Mode where I say “NB” once to activate the assistant, and then I can continue giving commands naturally without repeating “NB” before every command.
+
+The assistant must remain available while I switch between applications, subject to Android permissions and operating-system restrictions.
+
+Primary target: start executing supported, simple commands within approximately 2 seconds of the end of the spoken command, wherever technically possible. Measure actual latency and optimize the real implementation.
+
+1. CONTINUOUS VOICE MODE
+Create a setting named Continuous Voice Mode.
+
+When I enable this mode:
+
+I say “NB” once.
+
+NB AI enters an active conversation session.
+
+The assistant keeps listening for my next command while the session is active and listening is permitted.
+
+I can give multiple commands without repeating “NB”.
+
+The assistant executes each command and returns to listening automatically.
+
+I can interrupt an ongoing cancellable task with commands such as “Stop”, “Cancel”, or “থামো”.
+
+I can end the session by saying “NB sleep”, “Stop listening”, or “বন্ধ হও”, or by using the visible Stop Listening control.
+
+Example:
+
+“NB” → activate the assistant.
+
+“YouTube খোলো.”
+
+“আমার পছন্দের গান চালাও.”
+
+“Volume একটু বাড়াও.”
+
+“এবার WhatsApp খোলো.”
+
+“নতুন message থাকলে পড়ে শোনাও.”
+
+“নিচে scroll করো.”
+
+Do not require “NB” before every command while Continuous Voice Mode is active.
+
+When the session ends or the service is interrupted, require the wake word again to reactivate it unless I explicitly choose another supported mode.
+
+2. FIX THE LONG LISTENING DELAY
+Inspect the existing speech-recognition code and identify why Listening takes too long.
+
+Check for:
+
+Speech recognition initialized repeatedly for each command.
+
+Excessive silence-detection timeouts.
+
+Long debounce delays.
+
+Arbitrary sleep timers.
+
+Slow network-based recognition.
+
+Unnecessary AI API calls for simple actions.
+
+Speech recognition waiting for a complete final result before processing simple commands.
+
+Microphone ownership conflicts.
+
+Text-to-speech output being recognized as user input.
+
+Repeated foreground-service restarts.
+
+Slow app-state or Accessibility Service queries.
+
+Fix the underlying causes rather than hiding the delay with a faster animation.
+
+Implement:
+
+A reusable native speech-recognition engine.
+
+Streaming or partial speech recognition where supported.
+
+Short, configurable end-of-speech detection.
+
+Fast local intent classification for common commands.
+
+Local execution of simple Android actions.
+
+Event-driven task processing.
+
+Proper microphone and audio-session management.
+
+Safe cancellation and recovery after recognition errors.
+
+Automatic return to listening after a command completes.
+
+A short configurable spoken response instead of unnecessarily long explanations.
+
+Do not use an excessively short silence timeout that cuts off my words. Optimize it based on actual speech-recognition measurements.
+
+3. TWO-SECOND RESPONSE TARGET
+Set a measurable performance target:
+
+Wake-word activation: immediate feedback after reliable detection.
+
+Common local commands: target action start within approximately 2 seconds after the user finishes speaking.
+
+Volume and supported brightness changes: execute locally without unnecessary AI or network calls.
+
+Open an installed app: use native Android launch intents where appropriate.
+
+Basic scrolling: use the native Accessibility Service interaction engine.
+
+Stop and cancel commands: give them high priority.
+
+Complex or network-dependent tasks: begin processing immediately and provide a short progress indication.
+
+Measure these timestamps separately:
+
+Speech end.
+
+Recognition result available.
+
+Intent identified.
+
+Action execution started.
+
+Action completed or verified.
+
+Record average and 95th-percentile latency for common commands. Identify the slowest component and optimize it.
+
+Never report that the 2-second target has been achieved unless actual measurements support that claim.
+
+4. KEEP THE ASSISTANT AVAILABLE ACROSS APPS
+Implement Continuous Voice Mode using the existing native Android foreground service.
+
+While the service is active and permitted:
+
+Continue supported listening when I switch from NB AI to YouTube, WhatsApp, Messenger, Facebook, Chrome, or another app.
+
+Keep the required foreground-service notification visible.
+
+Maintain the active voice session without requiring me to reopen NB AI.
+
+Restore listening after supported temporary interruptions.
+
+Handle screen locking and screen-off operation according to Android's restrictions.
+
+Prevent duplicate speech recognizers and duplicate microphone listeners.
+
+Show clear status for service running, listening, processing, paused, and unavailable.
+
+Provide visible Pause Listening and Stop Listening controls.
+
+Explain how to resolve battery restrictions on devices that terminate background services.
+
+Use native Kotlin, appropriate Android foreground-service types, microphone permissions, and the correct implementation for the target Android version.
+
+Do not rely on a browser tab remaining open. Do not claim the service will survive every force-stop, reboot, permission revocation, or operating-system termination.
+
+5. FAST COMMAND ROUTER
+Build a lightweight local command router for frequent commands.
+
+Examples:
+
+“YouTube খোলো.”
+
+“WhatsApp খোলো.”
+
+“Volume বাড়াও.”
+
+“Volume কমাও.”
+
+“Brightness কমাও.”
+
+“Scroll down.”
+
+“উপরে যাও.”
+
+“Pause.”
+
+“Next song.”
+
+“আগের গান চালাও.”
+
+“Stop.”
+
+“Cancel.”
+
+“বন্ধ করো.”
+
+Execute simple commands directly through the appropriate native API, Android intent, media session, or Accessibility Service.
+
+Use remote AI interpretation only when a command genuinely requires complex reasoning.
+
+For ambiguous commands, ask a short clarification rather than executing the wrong action.
+
+6. FAST APP INTERACTION
+Integrate the optimized voice engine with all previously requested app integrations.
+
+When I say “YouTube খোলো, গান চালাও, volume বাড়াও,” NB AI should execute the supported steps in sequence without requiring a separate wake word before every step.
+
+Apply the same command-routing architecture to WhatsApp, IMO, Messenger, Facebook, Instagram, Telegram, Chrome, Maps, Photos, Settings, and all other apps in my existing dashboard.
+
+After opening an app, continue with supported in-app actions rather than stopping at the launch screen.
+
+Use app-specific adapters and Accessibility Service for authorized interactions. Verify important actions before reporting success.
+
+7. AUDIO AND LISTENING RELIABILITY
+Implement proper management of microphone input and assistant speech output.
+
+Prevent the assistant from repeatedly hearing its own voice.
+
+Resume listening after a short response.
+
+Avoid restarting the recognition engine unnecessarily.
+
+Handle audio focus and temporary interruptions.
+
+Show a clear error if microphone permission is revoked.
+
+Avoid overheating and excessive battery consumption.
+
+Provide a configurable listening mode.
+
+Make it easy to pause or stop continuous listening.
+
+If continuous recognition is unavailable on a device or Android version, offer the best supported fallback and clearly explain the limitation.
+
+8. REQUIRED SETTINGS
+Add working controls for:
+
+Continuous Voice Mode: On/Off.
+
+Wake Word Required for Each Command: On/Off.
+
+Automatically Resume Listening: On/Off.
+
+Voice Response Length: Short/Normal.
+
+Listening Sensitivity: Supported levels.
+
+End-of-Speech Delay: Safe configurable options.
+
+Background Service Status.
+
+Microphone Permission Status.
+
+Battery Optimization Guidance.
+
+Pause Listening.
+
+Stop Listening.
+
+Persist settings appropriately and ensure the UI reflects the actual native service state.
+
+Do not let a toggle display On when the corresponding service is not running.
+
+9. TESTING AND FINAL DELIVERY
+Use a real Android device whenever possible.
+
+Test the following sequence:
+
+Open NB AI.
+
+Enable Continuous Voice Mode.
+
+Say “NB” once.
+
+Say “YouTube খোলো.”
+
+Say “একটা গান চালাও.”
+
+Say “Volume বাড়াও.”
+
+Switch to WhatsApp.
+
+Say “নতুন notification পড়ে শোনাও.”
+
+Say “নিচে scroll করো.”
+
+Continue issuing commands without repeating “NB”.
+
+Lock the screen and test supported background behavior.
+
+Say “Stop listening” and verify that listening stops.
+
+Measure actual latency for each command.
+
+Fix the real code, build the native Android project where possible, and provide a test report showing:
+
+Implemented and tested.
+
+Implemented but not tested.
+
+Partially supported.
+
+Blocked by Android or app restrictions.
+
+Do not return only a plan or a redesigned interface.
+
+FINAL REQUIREMENT
+Preserve all existing NB AI functionality and previous prompts.
+
+Prioritize continuous listening, fast speech recognition, low-latency native command execution, reliable background service behavior, and immediate execution of simple commands.
+
+I should only need to say “NB” once to activate Continuous Voice Mode, then continue talking naturally until I stop the session.
+
+Start by profiling the existing listening pipeline, fixing the slowest components, implementing continuous-session management, and measuring the results on a real device.
+
+মনে রেখো: “NB” একবার বলার পর একটানা কথা বলার জন্য Continuous Voice Mode চালু থাকতে হবে। Android-এর microphone permission, foreground service এবং প্রয়োজনীয় native integration ছাড়া শুধু Lovable-এর ওয়েব UI দিয়ে এটি নিশ্চিত করা যাবে না।
+
+ay app ta jate khub fast kaj kore tar jonno ki promt deoya jai best promt konta ar amar kotha bolar stahe sathei kaj korbe 2 s o moddei kaj korbe app ta khub fast hobe
+তোমার NB AI-এর জন্য সবচেয়ে ভালো হবে Ultra-Fast Performance Optimization Master Prompt। এটি Lovable-এ তোমার আগের project-এ দেবে। এর লক্ষ্য হলো Listening-এর দেরি কমানো, “NB” একবার বলার পর একটানা command নেওয়া এবং কথা শেষ হওয়ার সঙ্গে সঙ্গে ২ সেকেন্ডের মধ্যে supported কাজ শুরু করা।
+
+NB AI — ULTRA-FAST PERFORMANCE MASTER PROMPT
+Target: Immediate Voice Commands, Low Latency & Continuous Listening
+Upgrade my existing NB AI Voice Assistant project. Do not create a new project, remove existing features, or merely redesign the interface.
+
+My biggest problem is that the assistant takes too long in the Listening state and executes commands late. I want the fastest reliable voice assistant possible, using optimized native Android architecture.
+
+PRIMARY PERFORMANCE TARGET: For supported, simple commands, target action initiation within 2 seconds after I finish speaking. Measure actual performance and fix the underlying causes of delay.
+
+1. AUDIT BEFORE OPTIMIZING
+Inspect the complete existing source code and identify every cause of slow performance, including:
+
+Speech recognition startup delays.
+
+Excessive silence-detection timeouts.
+
+Slow wake-word detection.
+
+Unnecessary network and AI API requests.
+
+Repeated initialization of native services.
+
+Slow JavaScript-to-Kotlin bridge calls.
+
+Excessive UI polling and fixed delays.
+
+Accessibility Service response delays.
+
+Duplicate event listeners or command execution.
+
+Microphone conflicts and text-to-speech feedback.
+
+Memory leaks, unnecessary background work, and main-thread blocking.
+
+Measure the current performance before changing the architecture. Do not guess at the bottleneck.
+
+2. BUILD A LOW-LATENCY NATIVE VOICE PIPELINE
+Optimize this complete pipeline:
+
+Microphone → Wake-word detection → Speech recognition → Local intent classification → Native action execution → Result verification
+
+Requirements:
+
+Use a native, low-power wake-word engine where supported.
+
+Reuse initialized speech-recognition components.
+
+Use streaming or partial recognition results where available.
+
+Implement fast, configurable end-of-speech detection.
+
+Avoid restarting the recognition engine unnecessarily.
+
+Process simple commands locally.
+
+Avoid remote AI calls for commands that can be handled by Android APIs.
+
+Use efficient native Kotlin components and non-blocking asynchronous operations.
+
+Prevent duplicate commands and stale tasks.
+
+Handle microphone permissions and audio focus correctly.
+
+Keep the UI responsive during long-running tasks.
+
+Resume listening safely after a short spoken response.
+
+Do not use an excessively short silence timeout that cuts off my words. Optimize recognition speed without sacrificing accuracy.
+
+3. CONTINUOUS VOICE MODE
+After I say “NB” once, allow me to issue multiple commands without repeating the wake word until I end the session.
+
+Example:
+
+“NB”
+
+“YouTube খোলো.”
+
+“আমার গান চালাও.”
+
+“Volume বাড়াও.”
+
+“WhatsApp খোলো.”
+
+“নতুন notification পড়ে শোনাও.”
+
+“নিচে scroll করো.”
+
+Keep the native foreground service available across app switching, subject to Android permissions and restrictions.
+
+Implement:
+
+Persistent session state.
+
+Automatic return to listening after commands.
+
+Immediate pause and stop handling.
+
+A visible listening status and stop control.
+
+Safe microphone and audio-session management.
+
+Recovery from temporary interruptions where permitted.
+
+Never show Listening as active if the microphone or recognition engine is not actually available.
+
+4. EXECUTE SIMPLE COMMANDS IMMEDIATELY
+Create a lightweight local command router for common commands.
+
+Examples:
+
+Open an installed app.
+
+Increase or decrease media volume.
+
+Adjust permitted screen brightness settings.
+
+Pause or resume supported media.
+
+Scroll the current accessible screen.
+
+Navigate back where appropriate.
+
+Stop or cancel an ongoing operation.
+
+Use native Android APIs, intents, media sessions, and Accessibility Service instead of unnecessary AI reasoning.
+
+For simple commands, execute the action as soon as the intent is sufficiently clear. Do not wait for a long AI response before acting.
+
+For ambiguous commands, ask a short clarification instead of performing the wrong action.
+
+5. PERFORMANCE TARGETS AND MEASUREMENTS
+Target the following for supported operations:
+
+Wake-word activation: respond immediately after reliable detection.
+
+Common local commands: aim to start the action within 2 seconds after speech ends.
+
+Volume and other supported local controls: execute without unnecessary network calls.
+
+App launching: use the appropriate native Android mechanism.
+
+Scrolling: use the native accessibility interaction engine.
+
+Stop and cancel commands: receive the highest execution priority.
+
+Measure separately:
+
+Wake-word detection latency.
+
+Speech-recognition latency.
+
+Intent-classification latency.
+
+Native action-start latency.
+
+Action-completion latency.
+
+Total end-to-end latency.
+
+Report average and 95th-percentile timings for a representative set of commands. Compare results before and after optimization.
+
+The 2-second target is a performance goal, not permission to report fake results. Network-dependent searches, complex reasoning, and third-party app loading may take longer.
+
+6. OPTIMIZE THE ENTIRE APP
+Profile and optimize:
+
+Application startup.
+
+Screen rendering.
+
+App dashboard loading.
+
+Native bridge communication.
+
+Accessibility node queries.
+
+Command queue management.
+
+Memory usage.
+
+CPU and battery consumption.
+
+Background-service stability.
+
+Error handling and recovery.
+
+Avoid unnecessary dependencies, repeated database reads, oversized synchronous operations, excessive logging, and redundant network requests.
+
+Keep the foreground service efficient. Do not create multiple microphone listeners or wake-word engines.
+
+7. PRESERVE ALL EXISTING FEATURES
+Do not break the existing:
+
+NB wake word.
+
+Continuous Voice Mode.
+
+Foreground service.
+
+Accessibility Service.
+
+WhatsApp message-reading features.
+
+YouTube search and playback.
+
+Cross-app scrolling and interaction.
+
+Volume and brightness controls.
+
+Existing app dashboard.
+
+Other integrations and previous feature requests.
+
+Optimize the existing architecture rather than replacing working components with placeholders.
+
+8. REAL DEVICE TESTING
+Build and test the native Android application wherever the environment permits.
+
+Run repeated tests for:
+
+Simple Bangla commands.
+
+Banglish commands.
+
+App switching.
+
+Continuous listening.
+
+Screen locking where supported.
+
+Volume control.
+
+App launching.
+
+Scrolling.
+
+Media playback.
+
+Permission denial.
+
+Network failure.
+
+Microphone interruptions.
+
+Background-service recovery.
+
+Record actual measurements, investigate slow cases, and repeat tests after fixes.
+
+Mark each feature as:
+
+Implemented and tested.
+
+Implemented but not tested.
+
+Partially supported.
+
+Blocked by Android or third-party restrictions.
+
+Not implemented.
+
+Do not claim a real-device test passed if it was not performed.
+
+FINAL INSTRUCTION
+Do not return only recommendations or a plan. Inspect and modify the existing source code, fix the measured bottlenecks, implement native Android optimizations, build the application where possible, and report actual performance results.
+
+My highest priority is a fast, reliable assistant that starts supported actions as soon as I finish speaking, ideally within 2 seconds, while preserving all existing features.
+
+Never fake success, silently remove functionality, or claim guaranteed 2-second completion for every possible task.
+
+কীভাবে সবচেয়ে ভালো ফল পাবে
+Lovable-এ তোমার বর্তমান NB AI project খুলে prompt-টি দাও।
+
+Lovable-কে শুধু code তৈরি করতে নয়, আগের code-এ delay কোথায় হচ্ছে তা শনাক্ত করে ঠিক করতে বলো।
+
+Native Android build করে বাস্তব ফোনে পরীক্ষা করো।
+
+সবচেয়ে গুরুত্বপূর্ণ কথা: শুধু prompt দিলেই অ্যাপ দ্রুত হয়ে যাবে না। আসল bottleneck যদি speech recognition, microphone, network request বা native service-এ থাকে, তাহলে সেই code ঠিক করতে হবে। সাধারণ local command-এর ক্ষেত্রে ২ সেকেন্ডের মধ্যে কাজ শুরু করা একটি যুক্তিসঙ্গত লক্ষ্য; কিন্তু সব অ্যাপ, গান খোঁজা বা নেটওয়ার্ক-নির্ভর কাজের জন্য ২ সেকেন্ড নিশ্চিত করা সম্ভব নয়।
+
+kono rokom error jeno na dekhai jodi ata error kono problem hoi ta ja kono problem holei 2 s er modde ata autometically solve korbe akahne Ai model ato sundor kore fix kore dao jate ay app ta nije nije nijei protect problem solve bug fix korte parbe nije nijei
+তোমার NB AI-তে এমন একটি Self-Healing AI System যোগ করার জন্য নিচের prompt-টি Lovable-এ দাও। এর লক্ষ্য হবে error দ্রুত শনাক্ত করা, নিরাপদে bug fix চেষ্টা করা, service নিজে থেকে recover করা এবং অ্যাপের কাজ বন্ধ না হতে দেওয়া।
+
+একটি গুরুত্বপূর্ণ বিষয়: সব error ২ সেকেন্ডের মধ্যে সম্পূর্ণ fix করা সম্ভব নয়। তবে ২ সেকেন্ডের মধ্যে error শনাক্ত করে recovery শুরু করা, সহজ সমস্যা দ্রুত ঠিক করা এবং বড় সমস্যায় fallback চালু করা সম্ভব।
+
+NB AI — AUTONOMOUS SELF-HEALING AI, AUTO BUG FIX & ERROR RECOVERY MASTER PROMPT
+1. Main Objective
+Upgrade my existing NB AI Voice Assistant project with a robust, autonomous, self-healing architecture.
+
+Do not create a new project, remove existing features, or replace working functionality with mock implementations.
+
+My goal is for NB AI to detect errors, diagnose problems, recover from failures, repair safely recoverable issues, and continue operating without requiring me to manually restart the application for every small problem.
+
+Implement a real system using native Android Kotlin, the existing application architecture, structured error handling, diagnostics, recovery logic, and AI-assisted troubleshooting.
+
+Primary target: Detect failures immediately and begin an appropriate recovery action within approximately 2 seconds. Simple, known problems should recover automatically when safe. Complex problems must be diagnosed, isolated, and reported honestly.
+
+2. Autonomous Error Detection
+Monitor important application components:
+
+Voice recognition and microphone availability.
+
+“NB” wake-word engine.
+
+Continuous Voice Mode.
+
+Foreground service.
+
+Accessibility Service availability.
+
+Native Android bridge.
+
+App launch and deep interaction engine.
+
+Scrolling and click execution.
+
+YouTube and media controls.
+
+WhatsApp notification-reading workflows.
+
+Network requests and AI model responses.
+
+Database and local settings.
+
+Permission state.
+
+Memory usage and application responsiveness.
+
+Unhandled exceptions and failed tasks.
+
+Detect errors through real signals such as exceptions, failed API responses, timeouts, unavailable services, invalid states, and failed action verification.
+
+Do not invent errors or display generic error messages when no actual failure has occurred.
+
+3. Automatic Recovery Within 2 Seconds
+When a recoverable error occurs:
+
+Detect the failure immediately.
+
+Identify the affected component.
+
+Classify the error using known error codes and recovery rules.
+
+Start an appropriate recovery attempt within approximately 2 seconds.
+
+Verify whether the recovery succeeded.
+
+Resume the interrupted task when it is safe.
+
+Inform the user only when necessary.
+
+Examples:
+
+Speech recognition fails → safely restart or recreate the recognition session.
+
+Temporary network failure → use a bounded retry or local fallback.
+
+Accessibility action fails → refresh the UI hierarchy and retry the action when safe.
+
+App launch fails → verify the package and launch intent, then provide an alternative if available.
+
+A native bridge call times out → cancel the stale request and restore a valid connection state.
+
+A recoverable service interruption occurs → restore the service when Android permits.
+
+A temporary AI model error occurs → use a configured fallback model or deterministic local command handler.
+
+A task becomes stuck → enforce a timeout, cancel safely, and return the task manager to a usable state.
+
+Do not endlessly retry failed actions. Use bounded retries, exponential backoff where appropriate, and circuit breakers for repeatedly failing components.
+
+Important: Two seconds is the target for detection and starting recovery, not a guarantee that every bug can be completely repaired in that time.
+
+4. Safe Self-Healing Architecture
+Implement the following components:
+
+A. Error Monitor
+Collect structured errors and component health information.
+
+B. Diagnostic Engine
+Determine the likely cause using exception types, error codes, timeouts, component state, and recent execution history.
+
+C. Recovery Policy Engine
+Map known failures to approved recovery actions.
+
+D. AI Troubleshooting Assistant
+Use the configured AI model to interpret diagnostic information, explain likely causes, and recommend or generate a repair for supported issues.
+
+E. Recovery Executor
+Execute only approved, bounded, reversible recovery actions at runtime.
+
+F. Health Monitor
+Verify that the component is working after recovery.
+
+G. Safe Fallback System
+Keep essential functionality available if the original component cannot be restored.
+
+H. Diagnostic Report
+Store a concise record of the error, attempted recovery, verification result, and remaining limitation.
+
+Keep these components modular, testable, and connected to the existing project.
+
+5. AI-Assisted Automatic Bug Fixing
+Implement a controlled self-repair workflow.
+
+When a software defect is detected:
+
+Capture a sanitized diagnostic report.
+
+Identify the affected component and relevant error trace.
+
+Search existing recovery rules and known fixes.
+
+Determine whether the issue can be fixed by changing runtime state or configuration.
+
+If a code change is genuinely required, generate a proposed patch in an isolated development or update environment.
+
+Validate the patch with static checks and relevant automated tests.
+
+Apply the patch only through an authorized, integrity-checked update mechanism.
+
+Preserve the previous working version and provide rollback if validation fails.
+
+Confirm the fix using the original failing test.
+
+Record the result.
+
+Do not pretend that an AI model can modify installed native application code arbitrarily at runtime.
+
+For production Android builds, use a secure update pipeline, a signed application update, or a controlled developer release process for actual code changes. If the app cannot safely apply a code patch, automatically recover the runtime state, activate a fallback, and prepare a diagnostic report instead.
+
+6. Keep the Assistant Working During Failures
+Implement graceful degradation.
+
+If one component fails:
+
+Keep unrelated components running where safe.
+
+Switch simple commands to local deterministic handlers.
+
+Keep available media controls independent from remote AI processing.
+
+Preserve user settings and task state.
+
+Prevent a single failed integration from crashing the entire app.
+
+Offer supported fallback methods for unavailable functions.
+
+Resume interrupted tasks only if doing so cannot duplicate an action.
+
+For example, if the remote AI model is unavailable, commands such as volume adjustment, app launching, pause, and stop should continue working through their native handlers whenever possible.
+
+7. Protect Against Repeated Failures
+Implement:
+
+Global exception handling.
+
+Component-level failure isolation.
+
+Timeouts for network and native operations.
+
+Bounded retries.
+
+Circuit breakers.
+
+Duplicate-task prevention.
+
+Cancellation tokens.
+
+Safe service recreation.
+
+Crash diagnostics.
+
+Watchdog checks for genuine stalled operations.
+
+State validation after recovery.
+
+Rollback for failed updates.
+
+Rate limiting for recovery attempts.
+
+Do not use a watchdog that repeatedly kills and restarts healthy services. Avoid infinite recovery loops, excessive battery consumption, and uncontrolled background work.
+
+8. Security and Data Protection
+Self-healing must never compromise user security.
+
+Requirements:
+
+Do not disable Android security controls or permissions.
+
+Do not bypass authentication, biometrics, PINs, CAPTCHAs, or app restrictions.
+
+Do not automatically execute arbitrary AI-generated shell commands or code.
+
+Do not expose API keys, passwords, OTPs, private messages, or other secrets in diagnostic logs.
+
+Sanitize stack traces and diagnostic uploads.
+
+Do not upload diagnostic information without appropriate disclosure and authorization.
+
+Validate update signatures and package integrity.
+
+Require user approval for risky operations, destructive repairs, or changes affecting private data.
+
+Preserve a rollback path before applying an update.
+
+9. User-Friendly Error Handling
+Avoid exposing confusing technical stack traces in the normal interface.
+
+For recoverable failures:
+
+Recover silently when safe.
+
+Keep the interface responsive.
+
+Avoid repeatedly interrupting the user.
+
+Show a short status only if it helps.
+
+For unresolved failures:
+
+Explain what stopped working.
+
+State which recovery attempts were made.
+
+Provide a clear next step.
+
+Offer a detailed diagnostic report for troubleshooting.
+
+Never show “Fixed successfully” unless the recovery has been verified.
+
+10. Self-Healing Dashboard
+Add a working diagnostics dashboard with:
+
+Overall system health.
+
+Voice engine status.
+
+Wake-word status.
+
+Foreground-service status.
+
+Accessibility Service status.
+
+Native bridge status.
+
+Network and AI model status.
+
+Recent errors.
+
+Recovery attempts.
+
+Recovery success rate.
+
+Command latency measurements.
+
+Failed feature list.
+
+Last successful health check.
+
+Manual diagnostic and retry controls.
+
+The dashboard must reflect real component states, not hard-coded indicators.
+
+11. Testing and Acceptance Criteria
+Test real failures, including:
+
+Microphone permission revoked.
+
+Speech recognition timeout.
+
+Temporary network disconnection.
+
+AI model unavailable.
+
+Accessibility Service disabled.
+
+Failed app launch.
+
+Stalled scrolling action.
+
+Native bridge timeout.
+
+Foreground-service interruption.
+
+Invalid saved settings.
+
+Failed update validation.
+
+Recovery attempt that cannot safely succeed.
+
+For each test, record:
+
+Detection time.
+
+Recovery-start time.
+
+Recovery completion time.
+
+Whether the original task resumed.
+
+Whether a fallback was used.
+
+Whether rollback was required.
+
+Whether user intervention was necessary.
+
+Do not mark a test as passed unless it was actually executed.
+
+Final Instruction
+Inspect the existing NB AI source code and implement this self-healing system in the actual project.
+
+Prioritize fast error detection, safe automatic recovery, component isolation, fallback execution, secure AI-assisted diagnostics, and verified recovery.
+
+The application should repair known runtime problems automatically wherever safe, remain usable when individual features fail, and support a controlled process for fixing genuine software bugs.
+
+Do not claim that every error can be automatically fixed or that the app can guarantee zero errors. Build a measurable, secure, production-oriented self-healing system that reduces failures and minimizes user intervention.
+
+সবচেয়ে গুরুত্বপূর্ণ পার্থক্য
+Runtime error: Listening বন্ধ হওয়া, network timeout, service interruption—এগুলো অনেক ক্ষেত্রে নিজে থেকে recover করা যায়।
+
+Code bug: ভুল Kotlin/JavaScript code বা broken build—এগুলোর জন্য পরীক্ষা করা patch ও নিরাপদ update প্রয়োজন হতে পারে।
+
+Security error: Permission বা authentication সমস্যা AI নিজে থেকে bypass করবে না।
+
+এভাবে তৈরি করলে NB AI শুধু error দেখাবে না; আগে recovery চেষ্টা করবে, সম্ভব না হলে fallback ব্যবহার করবে এবং সমাধান না হওয়া সমস্যার সঠিক কারণ জানাবে।
+
+Android-এর Native Integration এবং প্রয়োজন অনুযায়ী Accessibility Service gula kore thake lovabe diyai hoi ar sob kisu jeno sundor vabei kaj kore ar ata sundor vabe sob option gula jeno kaj kore ar ki ki likha jai jate lovabe diya atai hoi ar sob option jeno kaj kore ar ami akbar on korle jeno onno app gelio off na hoi on e theka phoen aktu somoy alu off holeo jeno app ta on theka tokhon o jeta bolo seitai jeno kore ar On e jeno sob somoy thake
+amake amon kata promt likhe dao jate amar sob feature kaj kore amar ami ja ja promt gula akhon porjontok likhsi sei gula jeno kaj kore ar  agula Native Android project, “NB” wake-word, background foreground service এবং Accessibility Service sob kisujeno sundor vabe kaj kote  kore dao ar sob option ba sob line jeno kaj kore amkae amon kata promt likhe dao
+amake aro kisu add kore dao youtube niya jai ba other sob app e duke but dukar por sob kisu kaj kore na scoll kore na kono kisu deeply kaj kore na jamon youtube duke jate ami bolle akta song plaly korbe sound barate bolle barabe komate bole komabe light komabe ar ja ja sob app ase sob app e jeno amon vabe deply kaaj kore amake amon vabe promt likhe dao ar  ayta listening onec somoy nisse amake amon vabe ta solve koro jate amar bolar sathe sathe kaj kore onec fast jeno hoi ami kisu bola matroi sei kaj korbe fast khub fast ar ki ki kora lage sob tumi promt likhe dao
+youtube moto jeno ay app gula deply kaj kore ar whatsapp,imo massgenger facebook massenger facebook instagram massge asob scoll ami upore jamon ta deeply kaj kore thik ay secreenshot deoya app gula jeno sei vabei deeply kaj kore  jeno bollei dukte pare ar sob kaj jeno thik vabe kaj kore
+whatsapp modde jeno dukte pare sob massge dekte pare amar amar kotharsathre sathe jaiga ki ki ase sob aamake janbe ki korbe aamake bolbe ar amar screenshot deoya sob app gula jeno deeply kaj kore ar deply ki ki kaj korbe tar detasl likhe dao ar moost importtant ja besoy add korba seita holo ay app ta khub slow sone tar por onec somoy por kaj kore ata amon vabe thik korba jate khub fast sune kotha bola sathe sathe jeno kaj kore khub fastassa app ta khub fast ar kotha bola sathe sathe jeno kaj kore ato fast hobe sob somoy NB bola lagbe na first e ak bar bollei hobe ar ata jeno sob somoy On theke other app e dukleo jeno ata on theke NB tokhon o amar kotha sunbre ar kaj korbe khub fast app ta jeno khub fast kaj kore app ta jeno kotha bola matroi kaj kore stahe sathei late jeno kore na listerning e akhon onec somoy nisse ata solve kore dao jate listering somoy besi na nai sunbe just 2 s e modde kaj korve ar app ta jeno khub fast hoiay app ta jate khub fast kaj kore tar jonno ki promt deoya jai best promt konta ar amar kotha bolar stahe sathei kaj korbe 2 s o moddei kaj korbe app ta khub fast hobe
+kono rokom error jeno na dekhai jodi ata error kono problem hoi ta ja kono problem holei 2 s er modde ata autometically solve korbe akahne Ai model ato sundor kore fix kore dao jate ay app ta nije nije nijei protect problem solve bug fix korte parbe nije nijei
+…
+তোমার দেওয়া সব requirements একসঙ্গে মিলিয়ে নিচে NB AI Ultimate Master Prompt তৈরি করে দিলাম। এটি Lovable-এ তোমার বর্তমান project-এ দেবে। এতে Native Android, NB wake-word, Continuous Listening, দ্রুত command execution, সব dashboard app-এর Deep Control, WhatsApp message reading, auto-recovery এবং self-healing—সব একসঙ্গে থাকবে।
+
+NB AI — ULTIMATE MASTER IMPLEMENTATION PROMPT
+Native Android • Continuous Voice • Deep App Control • Ultra-Fast Execution • Self-Healing
+1. PROJECT INSTRUCTIONS
+Upgrade my existing NB AI Voice Assistant project. This is an existing project, not a request to create a new app.
+
+Preserve the current App Dashboard, all existing features, previous requirements, UI design, app icons, settings, and working code.
+
+Inspect the actual source code before making changes. Identify incomplete features, broken integrations, performance bottlenecks, native Android limitations, and existing errors.
+
+Implement real functionality. Do not create mock buttons, simulated app interactions, fake service indicators, placeholder implementations, or success messages that are not supported by actual results.
+
+My highest priorities are:
+
+Extremely fast voice-command execution.
+
+Continuous listening after one wake-word activation.
+
+Native Android background service.
+
+Reliable Accessibility Service and deep interaction inside supported apps.
+
+WhatsApp message and notification reading.
+
+Automatic recovery from runtime failures.
+
+Real testing and honest feature-status reporting.
+
+2. NATIVE ANDROID ARCHITECTURE
+Implement a real native Android project using Kotlin and the appropriate Android APIs, integrated with the existing application through a suitable native bridge.
+
+Create or correctly implement:
+
+Native application and service lifecycle.
+
+Foreground service with the correct service type and permissions.
+
+Low-latency wake-word engine.
+
+Speech recognition and command routing.
+
+Continuous Voice Mode.
+
+Accessibility Service and its configuration resources.
+
+Installed-app discovery and app launching.
+
+App-specific interaction adapters.
+
+Native volume and permitted brightness controls.
+
+Task execution and cancellation manager.
+
+Error monitoring and safe recovery.
+
+Diagnostics and performance measurements.
+
+Secure settings and permission management.
+
+Verify the actual project structure and build configuration. Do not claim that a native Android project has been completed if only the web/PWA interface was changed.
+
+3. ONE-TIME WAKE WORD AND CONTINUOUS LISTENING
+Implement a setting called Continuous Voice Mode.
+
+Expected behavior:
+
+I say “NB” once.
+
+The assistant activates.
+
+I can issue multiple commands without repeating “NB”.
+
+The assistant executes each supported command and returns to listening.
+
+It remains available when I switch to another app, while Android permits the service and microphone to remain active.
+
+I can say “Stop listening”, “NB sleep”, or “বন্ধ হও” to end the session.
+
+Example:
+
+“NB” → “YouTube খোলো” → “একটা গান চালাও” → “Volume বাড়াও” → “WhatsApp খোলো” → “নতুন notification পড়ে শোনাও”.
+
+Do not require the wake word for every command during an active session.
+
+Keep the service state accurate. If the microphone is unavailable or the service stops, display the actual status rather than falsely showing Listening.
+
+Provide working controls for:
+
+Continuous Voice Mode On/Off.
+
+Wake-word activation.
+
+Pause Listening.
+
+Resume Listening.
+
+Stop Listening.
+
+Microphone permission.
+
+Background service status.
+
+Battery optimization guidance.
+
+4. ULTRA-FAST VOICE ENGINE
+The existing Listening delay is a critical bug. Profile the full recognition pipeline and fix the actual bottleneck.
+
+Implement:
+
+Reusable native speech-recognition components.
+
+Streaming or partial recognition where supported.
+
+Efficient wake-word detection.
+
+Short, configurable end-of-speech detection.
+
+Local command classification.
+
+Direct native execution for simple commands.
+
+Non-blocking asynchronous operations.
+
+No unnecessary fixed delays.
+
+No unnecessary AI network requests.
+
+No repeated initialization of active services.
+
+No duplicate microphone listeners.
+
+No duplicate command execution.
+
+Correct audio focus and microphone lifecycle management.
+
+Prevention of the assistant hearing its own text-to-speech output.
+
+Fast cancellation and interruption handling.
+
+For simple commands, do not wait for a remote AI model to generate a long answer before taking action.
+
+Target starting supported, simple actions within approximately 2 seconds after I finish speaking. Measure real performance and optimize based on actual results.
+
+Measure:
+
+Wake-word latency.
+
+Speech recognition latency.
+
+Intent-classification latency.
+
+Native action-start latency.
+
+Action-completion latency.
+
+End-to-end latency.
+
+Report average and 95th-percentile results. Do not claim guaranteed two-second completion for network-dependent or complex operations.
+
+5. ACCESSIBILITY SERVICE AND DEEP INTERACTION
+Implement the real native Accessibility Service with correct declarations, configuration, lifecycle handling, and user-authorized activation in Android Settings.
+
+The shared interaction engine must support, where exposed and permitted:
+
+Inspecting the current accessibility hierarchy.
+
+Identifying the active app and screen.
+
+Locating accessible buttons, text fields, lists, and scroll containers.
+
+Vertical and horizontal scrolling.
+
+Clicking accessible controls.
+
+Entering dictated text.
+
+Selecting tabs and menus.
+
+Reading accessible visible text aloud.
+
+Detecting page changes and loading states.
+
+Rechecking the screen after an action.
+
+Verifying whether an action succeeded.
+
+Recovering safely from stale UI references.
+
+Cancelling stuck tasks.
+
+Prefer semantic accessibility actions, supported app intents, and official APIs. Use gestures when appropriate and permitted.
+
+Do not assume all apps expose the same controls. Never claim universal deep control where an app or Android blocks it.
+
+6. DEEP CONTROL FOR EVERY APP IN MY DASHBOARD
+Implement and test the existing dashboard apps:
+
+Communication: WhatsApp, Phone, Messages, Contacts, Messenger, Telegram, IMO, Gmail, Google Meet, Zoom.
+
+Social media: Facebook, Instagram, TikTok, Snapchat, X (Twitter), LinkedIn.
+
+Media: YouTube, Spotify, Netflix.
+
+Google and AI: ChatGPT, Gemini, Google Maps, Chrome, Google Translate, Google Drive, Google Photos, Google Calendar.
+
+Other apps: Play Store, Calculator, Clock, Files/Downloads, Android Settings, bKash, Nagad, Daraz.
+
+Use actual installed package identifiers, supported launch intents, official APIs, and app-specific adapters.
+
+For each app, implement applicable capabilities:
+
+Open the app or requested supported screen.
+
+Identify the current screen.
+
+Scroll accessible lists and feeds.
+
+Search for content.
+
+Enter text into accessible fields.
+
+Select accessible results.
+
+Read visible accessible text on request.
+
+Execute supported controls.
+
+Verify action results.
+
+Handle permissions and failures correctly.
+
+Create an app capability registry showing what is implemented, tested, partially supported, or blocked.
+
+7. WHATSAPP MESSAGE INTELLIGENCE
+Implement authorized WhatsApp interaction.
+
+Where accessible, support:
+
+Opening WhatsApp and selected conversations.
+
+Reading visible accessible messages.
+
+Reading new incoming notifications with notification access enabled.
+
+Identifying sender and available timestamp.
+
+Searching contacts and chats.
+
+Scrolling through accessible conversation history.
+
+Summarizing accessible messages when requested.
+
+Dictating replies and entering them into the correct chat.
+
+Reading a draft before sending.
+
+Confirming consequential sends when appropriate.
+
+Verifying whether a message was actually sent.
+
+Example commands:
+
+“WhatsApp খোলো.”
+
+“নতুন message পড়ে শোনাও.”
+
+“Rahim-এর chat খোলো.”
+
+“এই conversation-এর message সংক্ষেপে বলো.”
+
+“উপরে scroll করে পুরোনো message দেখাও.”
+
+“একটি reply লিখে দাও.”
+
+If the full chat history is unavailable, explain what is actually accessible. Do not bypass encryption, authentication, app locks, or protected data. Do not silently monitor private content beyond authorized settings.
+
+8. YOUTUBE AND MEDIA CONTROL
+Implement supported YouTube and media workflows:
+
+Search for a requested song or video.
+
+Open a suitable result.
+
+Play, pause, and resume playback.
+
+Control next/previous tracks where supported.
+
+Seek forward or backward where available.
+
+Scroll search results and feeds.
+
+Read accessible titles.
+
+Control media volume through Android native APIs.
+
+Verify playback through available player or media-session signals.
+
+Example:
+
+“NB, YouTube-এ Atif Aslam-এর গান চালাও.”
+
+“Volume বাড়াও.”
+
+“Video pause করো.”
+
+“আরও নিচে scroll করো.”
+
+Use the same shared engine and app-specific adapters for other supported apps. Do not fake playback or claim success when a result cannot be verified.
+
+9. NATIVE SYSTEM CONTROLS
+Implement the appropriate Android-native actions for:
+
+Media volume.
+
+Permitted brightness adjustment.
+
+App launching.
+
+Supported navigation actions.
+
+Timers and alarms.
+
+Media playback controls.
+
+Task cancellation.
+
+Supported settings screens.
+
+Use official Android APIs, intents, media sessions, or accessibility actions as appropriate.
+
+If a requested system change requires a permission or system setting, explain and request the necessary user authorization.
+
+10. SELF-HEALING AND AUTOMATIC ERROR RECOVERY
+Implement a real self-healing architecture with:
+
+Error Monitor.
+
+Diagnostic Engine.
+
+Recovery Policy Engine.
+
+Safe Recovery Executor.
+
+Health Monitor.
+
+Fallback Handler.
+
+Diagnostic Report.
+
+Controlled Update and Rollback Workflow.
+
+Detect genuine failures such as:
+
+Speech-recognition timeout.
+
+Microphone interruption.
+
+Accessibility Service unavailability.
+
+Failed app launch.
+
+Stalled scrolling.
+
+Native bridge timeout.
+
+Network failure.
+
+AI model unavailability.
+
+Foreground-service interruption.
+
+Invalid saved settings.
+
+Unhandled exceptions.
+
+Begin recovery as quickly as possible, targeting approximately 2 seconds to detect a problem and start a suitable recovery action.
+
+For safe, known runtime problems:
+
+Detect the failure.
+
+Identify the affected component.
+
+Apply a bounded recovery action.
+
+Verify whether it worked.
+
+Resume the interrupted task only if doing so is safe.
+
+Use a fallback if recovery fails.
+
+Report unresolved problems clearly.
+
+Use bounded retries, timeouts, circuit breakers, cancellation tokens, and rollback protection. Do not endlessly restart services.
+
+For actual source-code bugs, generate and validate a patch in a controlled development/update pipeline. Do not execute arbitrary AI-generated code or claim the installed application can rewrite its own native binary at runtime.
+
+Preserve unrelated functionality if one component fails.
+
+11. SECURITY AND PRIVACY
+Do not bypass Android security controls, permissions, authentication, PINs, biometrics, CAPTCHA, or third-party app restrictions.
+
+Do not expose passwords, OTPs, API keys, or private messages in logs.
+
+Require explicit approval for consequential actions such as:
+
+Sending messages or publishing public posts.
+
+Deleting files or photos.
+
+Making purchases or financial transfers.
+
+Sharing private information.
+
+Validate application updates and preserve rollback capability.
+
+12. PERFORMANCE AND STABILITY
+Profile and optimize:
+
+App startup.
+
+Dashboard rendering.
+
+Native bridge communication.
+
+Speech recognition.
+
+Accessibility queries.
+
+Memory usage.
+
+CPU usage.
+
+Battery consumption.
+
+Network calls.
+
+Task scheduling.
+
+Background-service lifecycle.
+
+Use efficient data structures, avoid blocking the main thread, remove redundant work, and prevent memory leaks.
+
+Do not hide real errors just to make the interface appear error-free. Handle errors gracefully, keep the app responsive, and show useful information only when needed.
+
+13. REAL IMPLEMENTATION AND TESTING
+Do not return only a plan, prompt, UI mockup, or list of recommendations.
+
+Inspect and modify the actual existing source code. Build the native Android application wherever the environment supports it.
+
+Test:
+
+Continuous listening.
+
+One-time wake-word activation.
+
+Switching between apps.
+
+Screen-off behavior where permitted.
+
+Fast command execution.
+
+Scrolling and accessibility interaction.
+
+WhatsApp notification and visible-message reading.
+
+YouTube search and playback.
+
+Volume and permitted brightness controls.
+
+Error recovery.
+
+Network failures.
+
+Permission revocation.
+
+Background-service interruptions.
+
+For every feature, report:
+
+Implemented and tested.
+
+Implemented but not tested.
+
+Partially supported.
+
+Blocked by Android or third-party restrictions.
+
+Not implemented.
+
+Measure actual command latency before and after optimization. Never claim tests passed if they were not performed.
+
+FINAL ACCEPTANCE CRITERIA
+My NB AI should behave as follows:
+
+I activate Continuous Voice Mode by saying “NB” once.
+
+I can continue speaking commands without repeating the wake word.
+
+The assistant remains available across supported app switching and background states.
+
+Simple local commands start executing as quickly as possible, targeting approximately 2 seconds after speech ends.
+
+Supported apps can be interacted with deeply rather than merely opened.
+
+WhatsApp messages are read only through authorized, actually available information.
+
+Genuine runtime errors trigger safe automatic recovery.
+
+Unrecoverable issues are reported honestly with useful diagnostics.
+
+Existing features remain intact.
+
+The final result is built, measured, and tested wherever technically possible.
+
+Start by auditing the current project, identifying the slowest components and broken interactions, then implement the highest-priority fixes first. Do not claim perfect reliability, universal app control, zero errors, or guaranteed two-second completion unless those claims are genuinely supported by testing.
+
+এখন কী করবে
+Lovable-এ বর্তমান NB AI project খুলবে।
+
+পুরো prompt-টি একবারে দেবে।
+
+Lovable যে পরিবর্তনগুলো করেছে, সেগুলো build ও test করতে বলবে।
+
+কোনো error দেখালে তার screenshot বা error text আমাকে পাঠাবে—আমি সেটির নির্দিষ্ট সমাধানের prompt তৈরি করে দেব।
+
+মনে রেখো: শুধু prompt দিয়ে zero error, সবসময় background microphone, বা সব অ্যাপে শতভাগ control নিশ্চিত করা যায় না। এর জন্য বাস্তব native code, প্রয়োজনীয় permission, Android build এবং device testing দরকার।
+
+
+
+

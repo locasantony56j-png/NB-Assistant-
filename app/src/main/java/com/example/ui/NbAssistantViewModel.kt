@@ -113,7 +113,7 @@ class NbAssistantViewModel(application: Application) : AndroidViewModel(applicat
 
         // 2. Local Fast Route (< 2s target)
         _uiState.update { it.copy(currentSpokenText = command, voiceMode = VoiceMode.PROCESSING) }
-        val result = fastRouter.routeCommandLocally(command)
+        val result = fastRouter.routeCommand(command)
         val execEndTime = System.currentTimeMillis()
         val execMs = (execEndTime - intentEndTime).coerceAtLeast(1)
         val totalMs = execEndTime - startTime
@@ -147,6 +147,30 @@ class NbAssistantViewModel(application: Application) : AndroidViewModel(applicat
                     )
                 }
                 voiceEngine?.speak(result.replyBangla)
+            }
+
+            is CommandResult.MultiStep -> {
+                _uiState.update { state ->
+                    val logs = result.steps.map { s ->
+                        ActionLogItem(
+                            id = UUID.randomUUID().toString(),
+                            command = command,
+                            targetApp = s.targetApp,
+                            actionType = s.actionType,
+                            resultMessage = s.replyBangla,
+                            status = s.status,
+                            latencyMs = totalMs
+                        )
+                    }
+                    state.copy(
+                        lastReply = result.summaryReply,
+                        lastActionStatus = "Multi-step (${result.steps.size} actions, ${totalMs}ms)",
+                        latencyMetrics = metrics,
+                        actionLogs = logs + state.actionLogs.take(30),
+                        isContinuousActive = true
+                    )
+                }
+                voiceEngine?.speak(result.summaryReply)
             }
 
             is CommandResult.NeedsAiOrConfirmation -> {

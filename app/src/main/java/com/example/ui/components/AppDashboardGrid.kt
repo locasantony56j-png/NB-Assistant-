@@ -26,8 +26,6 @@ import com.example.model.AppCategory
 import com.example.model.AppItem
 import com.example.model.AppRegistry
 import com.example.ui.theme.NbBlackOutline
-import com.example.ui.theme.NbBlackSurface
-import com.example.ui.theme.NbBlackSurfaceVariant
 import com.example.ui.theme.NbGreenPrimary
 
 @Composable
@@ -37,6 +35,7 @@ fun AppDashboardGrid(
 ) {
     var selectedCategory by remember { mutableStateOf<AppCategory?>(null) }
     var searchQuery by remember { mutableStateOf("") }
+    var isSixColumns by remember { mutableStateOf(false) }
 
     val filteredApps = remember(selectedCategory, searchQuery) {
         AppRegistry.allApps.filter { app ->
@@ -49,15 +48,15 @@ fun AppDashboardGrid(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = NbBlackSurface),
-        border = androidx.compose.foundation.BorderStroke(1.dp, NbBlackOutline)
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF09111E)),
+        border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF1E293B))
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            // Header & Search
+            // Header with 3/6 columns toggle
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -75,6 +74,25 @@ fun AppDashboardGrid(
                         fontSize = 11.sp,
                         color = Color(0xFF94A3B8)
                     )
+                }
+
+                // Grid Column Toggle
+                FilledTonalButton(
+                    onClick = { isSixColumns = !isSixColumns },
+                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
+                    modifier = Modifier.height(30.dp),
+                    colors = ButtonDefaults.filledTonalButtonColors(
+                        containerColor = Color(0xFF1E293B),
+                        contentColor = Color(0xFFCBD5E1)
+                    )
+                ) {
+                    Icon(
+                        imageVector = if (isSixColumns) Icons.Default.ViewAgenda else Icons.Default.GridView,
+                        contentDescription = "Toggle Grid Columns",
+                        modifier = Modifier.size(14.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(text = if (isSixColumns) "3-Col" else "6-Col", fontSize = 11.sp)
                 }
             }
 
@@ -98,9 +116,9 @@ fun AppDashboardGrid(
                 shape = RoundedCornerShape(12.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = NbGreenPrimary,
-                    unfocusedBorderColor = NbBlackOutline,
-                    focusedContainerColor = NbBlackSurfaceVariant,
-                    unfocusedContainerColor = NbBlackSurfaceVariant
+                    unfocusedBorderColor = Color(0xFF1E293B),
+                    focusedContainerColor = Color(0xFF101A2B),
+                    unfocusedContainerColor = Color(0xFF101A2B)
                 ),
                 singleLine = true
             )
@@ -109,40 +127,45 @@ fun AppDashboardGrid(
 
             // Category Filter Chips
             ScrollableTabRow(
-                selectedTabIndex = if (selectedCategory == null) 0 else selectedCategory!!.ordinal + 1,
+                selectedTabIndex = if (selectedCategory == null) 0 else selectedCategory!!.ordinal,
                 edgePadding = 0.dp,
                 containerColor = Color.Transparent,
                 contentColor = NbGreenPrimary,
                 divider = {}
             ) {
-                Tab(
-                    selected = selectedCategory == null,
-                    onClick = { selectedCategory = null },
-                    text = { Text("All (${AppRegistry.allApps.size})", fontSize = 12.sp) }
-                )
                 AppCategory.values().forEach { cat ->
+                    val isSelected = (selectedCategory == null && cat == AppCategory.ALL) || selectedCategory == cat
                     Tab(
-                        selected = selectedCategory == cat,
-                        onClick = { selectedCategory = cat },
-                        text = { Text(cat.title, fontSize = 12.sp) }
+                        selected = isSelected,
+                        onClick = {
+                            selectedCategory = if (cat == AppCategory.ALL) null else cat
+                        },
+                        text = {
+                            Text(
+                                text = if (cat == AppCategory.ALL) "All (${AppRegistry.allApps.size})" else cat.title,
+                                fontSize = 12.sp,
+                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                            )
+                        }
                     )
                 }
             }
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // App Grid (fixed height container to avoid scroll nesting issues)
+            // App Grid (Exact visual match to screenshot)
             LazyVerticalGrid(
-                columns = GridCells.Fixed(3),
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp),
+                columns = GridCells.Fixed(if (isSixColumns) 6 else 3),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(360.dp)
+                    .height(410.dp)
             ) {
                 items(filteredApps, key = { it.id }) { app ->
                     AppItemCard(
                         app = app,
+                        isCompact = isSixColumns,
                         onOpen = { onAppAction(app, "open") },
                         onScrollDown = { onAppAction(app, "scroll_down") }
                     )
@@ -155,74 +178,88 @@ fun AppDashboardGrid(
 @Composable
 fun AppItemCard(
     app: AppItem,
+    isCompact: Boolean,
     onOpen: () -> Unit,
     onScrollDown: () -> Unit
 ) {
     Surface(
-        shape = RoundedCornerShape(14.dp),
-        color = NbBlackSurfaceVariant,
-        border = androidx.compose.foundation.BorderStroke(1.dp, NbBlackOutline),
+        shape = RoundedCornerShape(16.dp),
+        color = Color(0xFF0F1A2A),
+        border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF1E293B)),
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onOpen() }
     ) {
         Column(
             modifier = Modifier
-                .padding(10.dp)
+                .padding(vertical = if (isCompact) 8.dp else 12.dp, horizontal = 4.dp)
                 .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
-            // Icon representation
+            // Icon badge matching the app's brand styling in the screenshot
             Box(
                 modifier = Modifier
-                    .size(42.dp)
+                    .size(if (isCompact) 36.dp else 46.dp)
                     .clip(CircleShape)
-                    .background(getCategoryColor(app.category).copy(alpha = 0.2f)),
+                    .background(app.badgeBgColor),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = getAppIcon(app.id),
                     contentDescription = app.name,
-                    tint = getCategoryColor(app.category),
-                    modifier = Modifier.size(24.dp)
+                    tint = app.iconColor,
+                    modifier = Modifier.size(if (isCompact) 20.dp else 26.dp)
                 )
             }
 
-            Spacer(modifier = Modifier.height(6.dp))
+            Spacer(modifier = Modifier.height(if (isCompact) 4.dp else 6.dp))
 
             Text(
                 text = app.name,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.SemiBold,
+                fontSize = if (isCompact) 10.sp else 12.sp,
+                fontWeight = FontWeight.Medium,
                 color = Color.White,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(6.dp))
-
-            // Quick Scroll Action Chip
-            Row(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(6.dp))
-                    .background(Color(0xFF2D3748))
-                    .clickable { onScrollDown() }
-                    .padding(horizontal = 6.dp, vertical = 2.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = Icons.Default.ArrowDownward,
-                    contentDescription = "Scroll",
-                    tint = NbGreenPrimary,
-                    modifier = Modifier.size(12.dp)
-                )
-                Spacer(modifier = Modifier.width(2.dp))
+            // Optional Sub-label (e.g. "Android app only" for Clock in screenshot)
+            if (app.subLabel != null) {
                 Text(
-                    text = "Scroll",
-                    fontSize = 10.sp,
-                    color = Color(0xFFE2E8F0)
+                    text = app.subLabel,
+                    fontSize = 9.sp,
+                    color = Color(0xFF64748B),
+                    maxLines = 1,
+                    textAlign = TextAlign.Center
                 )
+            }
+
+            if (!isCompact) {
+                Spacer(modifier = Modifier.height(4.dp))
+                // Quick Scroll Action Chip
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(Color(0xFF1E293B))
+                        .clickable { onScrollDown() }
+                        .padding(horizontal = 6.dp, vertical = 2.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowDownward,
+                        contentDescription = "Scroll",
+                        tint = NbGreenPrimary,
+                        modifier = Modifier.size(10.dp)
+                    )
+                    Spacer(modifier = Modifier.width(2.dp))
+                    Text(
+                        text = "Scroll",
+                        fontSize = 9.sp,
+                        color = Color(0xFFE2E8F0)
+                    )
+                }
             }
         }
     }
@@ -231,35 +268,35 @@ fun AppItemCard(
 fun getAppIcon(appId: String): ImageVector {
     return when (appId) {
         "whatsapp", "messenger", "telegram", "imo" -> Icons.Default.Chat
-        "phone" -> Icons.Default.Phone
+        "phone" -> Icons.Default.Call
         "sms" -> Icons.Default.Message
         "contacts" -> Icons.Default.Contacts
-        "camera" -> Icons.Default.CameraAlt
-        "youtube" -> Icons.Default.PlayCircle
+        "camera" -> Icons.Default.PhotoCamera
+        "youtube" -> Icons.Default.PlayArrow
         "spotify" -> Icons.Default.MusicNote
         "netflix" -> Icons.Default.Movie
-        "maps" -> Icons.Default.Map
+        "maps" -> Icons.Default.LocationOn
         "chrome" -> Icons.Default.Language
-        "gmail" -> Icons.Default.Email
+        "gmail" -> Icons.Default.Mail
         "calendar" -> Icons.Default.CalendarToday
-        "photos" -> Icons.Default.Photo
-        "drive" -> Icons.Default.Cloud
+        "photos" -> Icons.Default.PhotoLibrary
+        "drive" -> Icons.Default.CloudQueue
         "calculator" -> Icons.Default.Calculate
         "clock" -> Icons.Default.Alarm
         "settings" -> Icons.Default.Settings
         "playstore" -> Icons.Default.Shop
         "files" -> Icons.Default.Folder
-        "facebook", "instagram", "tiktok", "twitter", "linkedin" -> Icons.Default.Public
+        "facebook" -> Icons.Default.ThumbUp
+        "instagram" -> Icons.Default.CameraAlt
+        "tiktok" -> Icons.Default.Audiotrack
+        "twitter" -> Icons.Default.Close
+        "linkedin" -> Icons.Default.Work
+        "snapchat" -> Icons.Default.SentimentVerySatisfied
+        "bkash", "nagad" -> Icons.Default.AccountBalanceWallet
+        "daraz" -> Icons.Default.ShoppingBag
+        "meet", "zoom" -> Icons.Default.Videocam
+        "translate" -> Icons.Default.Translate
+        "chatgpt", "gemini" -> Icons.Default.AutoAwesome
         else -> Icons.Default.Apps
-    }
-}
-
-fun getCategoryColor(category: AppCategory): Color {
-    return when (category) {
-        AppCategory.COMMUNICATION -> Color(0xFF25D366)
-        AppCategory.SOCIAL -> Color(0xFF1877F2)
-        AppCategory.ENTERTAINMENT -> Color(0xFFFF0000)
-        AppCategory.AI_AND_GOOGLE -> Color(0xFF4285F4)
-        AppCategory.TOOLS_PAYMENT -> Color(0xFFE91E63)
     }
 }

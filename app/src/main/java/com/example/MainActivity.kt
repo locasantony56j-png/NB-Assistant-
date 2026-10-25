@@ -131,7 +131,13 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.testTag("app_dashboard_grid")
                         )
 
-                        // 5. Action History Log
+                        // 5. Personal Memory & Daily Schedules
+                        PersonalMemoryCard(
+                            onCalculateSample = { viewModel.handleSpokenCommand(it) },
+                            modifier = Modifier.testTag("personal_memory_card")
+                        )
+
+                        // 6. Action History Log
                         ActionHistoryView(
                             actionLogs = uiState.actionLogs,
                             modifier = Modifier.testTag("action_history_view")

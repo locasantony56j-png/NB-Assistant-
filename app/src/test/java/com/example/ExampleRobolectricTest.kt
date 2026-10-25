@@ -43,8 +43,18 @@ class ExampleRobolectricTest {
         val extracted = router.extractCommandText("NB, volume barao", isContinuousModeActive = false)
         assertEquals("volume barao", extracted)
 
-        val result = router.routeCommandLocally("volume barao")
+        val result = router.routeCommand("volume barao")
         assertTrue(result is CommandResult.Handled)
         assertEquals("System Audio", (result as CommandResult.Handled).targetApp)
+    }
+
+    @Test
+    fun `fast command router evaluates math expressions`() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val router = FastCommandRouter(context)
+
+        val result = router.routeCommand("২৫০ গুণ ৪ কত?")
+        assertTrue(result is CommandResult.Handled)
+        assertTrue((result as CommandResult.Handled).replyBangla.contains("1000"))
     }
 }

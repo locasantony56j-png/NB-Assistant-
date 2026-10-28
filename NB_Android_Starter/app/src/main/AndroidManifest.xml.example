@@ -1,0 +1,6 @@
+<!-- Merge the relevant entries into your existing AndroidManifest.xml; do not blindly replace it. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Keep the existing Capacitor MainActivity declaration and other app components. -->
+    </application>
+</manifest>
